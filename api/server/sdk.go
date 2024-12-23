@@ -43,7 +43,7 @@ func (c *Client) HandleWebhookCall(ctx context.Context, b *PaymentCreateBody, r 
 	}
 
 	amount := big.NewFloat(b.Amount)
-	if amount.Mul(amount, IgnoreIotaTxThreshold).Cmp(value) >= 0 {
+	if new(big.Float).Mul(amount, IgnoreIotaTxThreshold).Cmp(value) >= 0 {
 		return false
 	}
 
@@ -59,7 +59,7 @@ func (c *Client) HandleWebhookCall(ctx context.Context, b *PaymentCreateBody, r 
 		PercentOfTotal: (fvalue / float64(b.Amount)) * 100,
 	}
 
-	if amount.Mul(amount, TransactionThreshold).Cmp(value) >= 0 {
+	if new(big.Float).Mul(amount, TransactionThreshold).Cmp(value) >= 0 {
 		response.Error = types.GetProperError(types.ErrTransactionSlipped)
 	}
 
