@@ -1,0 +1,9 @@
+{
+    "ratelimit_every": 100,
+    "ratelimit_reset": 10,
+    "forwarder": {
+        "foward_address": "",
+        "min_forward": 0.02,
+        "transaction_threshold": 0.05
+    }
+}
