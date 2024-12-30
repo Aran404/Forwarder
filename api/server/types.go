@@ -11,6 +11,10 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+const (
+	ALLOW_LOCAL_HOST = false
+)
+
 var (
 	CryptoDeadline        = time.Minute * 30
 	MinForward            = types.Config.Forwarder.MinForward                             // Minimum amount to forward in SOL
