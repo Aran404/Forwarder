@@ -11,11 +11,9 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-const (
-	ALLOW_LOCAL_HOST = false
-)
-
 var (
+	ALLOW_LOCAL_HOST = false
+
 	CryptoDeadline        = time.Minute * 30
 	MinForward            = types.Config.Forwarder.MinForward                             // Minimum amount to forward in SOL
 	TransactionThreshold  = big.NewFloat(1 - types.Config.Forwarder.TransactionThreshold) // Threshold for transaction values
