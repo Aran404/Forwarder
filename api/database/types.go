@@ -6,10 +6,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-const (
+var (
 	ConnectionURI = "mongodb://localhost:27017"
 	DatabaseName  = "PaymentProcessor"
-
 	ConnectionTimeout = time.Second * 90
 )
 
