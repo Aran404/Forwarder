@@ -60,7 +60,7 @@ func (c *Client) CreatePayment(w http.ResponseWriter, r *http.Request) {
 		body.CallbackURI = "http://" + body.CallbackURI
 	}
 
-	if ALLOW_LOCAL_HOST && strings.Contains(body.CallbackURI, "localhost") {
+	if !ALLOW_LOCAL_HOST && strings.Contains(body.CallbackURI, "localhost") {
 		types.BadRequest(w, types.ErrInvalidCallbackURI)
 		return
 	}
